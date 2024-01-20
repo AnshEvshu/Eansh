@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+      overflow: hidden;
+    }
+    #container {
+      text-align: center;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+    }
+    img {
+      width: 150px;
+      border-radius: 50%;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    #yesBtn {
+      background-color: #4caf50;
+      color: #fff;
+    }
+    #noBtn {
+      background-color: #f44336;
+      color: #fff;
+    }
+    .emoji {
+      display: inline-block;
+      font-size: 24px;
+      animation: floatEmoji 1.5s ease-out infinite;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    @keyframes floatEmoji {
+      0% { transform: translateY(0); }
+      25% { transform: translateY(-30px); }
+      50% { transform: translateY(0); }
+      75% { transform: translateY(-15px); }
+      100% { transform: translateY(0); }
+    }
+
+    @media only screen and (max-width: 600px) {
+      img {
+        width: 80%;
+      }
+      button {
+        padding: 8px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <img src="cartoon.png" alt="Cartoon Image">
+    <h2>Do you love me?</h2>
+    <button id="yesBtn" onclick="showLoveMessage()">Yes</button>
+    <button id="noBtn" onclick="showAngryMessage()">No</button>
+    <p id="message"></p>
+    <p id="emoji"></p>
+    <div id="emojis"></div>
+    <!-- Additional paragraph for the special message -->
+    <p id="specialMessage"></p>
+  </div>
+
+  <script>
+    function showLoveMessage() {
+      document.getElementById("message").innerHTML = "Wow! I know you love me.";
+      document.getElementById("emoji").innerHTML = "😊";
+      createHearts();
+
+      // Display the special message
+      document.getElementById("specialMessage").innerHTML = "🎉🥳🎈 Yeeeeeee! 😄 Oh my sweet motu, I love you more than words can say.! 💖😍 I feel like the luckiest person alive to have spent these amazing 6 years with you. 🌟 Your love is my greatest treasure, and I cherish every moment we've shared. 🎊 Thank you for being my rock, my love, and my partner in all things silly and serious. 🤪💑 Here's to us, my love! 🥂🍾 Happyest Advance Anniversary! 🎂🥰 Let's continue this incredible journey together, making more memories, and laughing our way through life! 🤣💕 Cheers to many more years of love, laughter, and endless adventures! 🚀🌈 I love you more than words can express! 💘😘";
+    }
+
+    function showAngryMessage() {
+      document.getElementById("message").innerHTML = "Go to Hell Motka Sala ";
+      document.getElementById("emoji").innerHTML = "😠";
+      createAngryEmojis();
+      
+      // Clear the special message when showing angry message
+      document.getElementById("specialMessage").innerHTML = "";
+    }
+
+    function createHearts() {
+      const heartsContainer = document.getElementById("emojis");
+      heartsContainer.innerHTML = ""; // Clear existing emojis
+      for (let i = 0; i < 15; i++) {
+        const heart = document.createElement("div");
+        heart.className = "emoji";
+        heart.innerText = "❤️";
+        heart.style.top = Math.random() * window.innerHeight + "px";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heartsContainer.appendChild(heart);
+      }
+    }
+
+    function createAngryEmojis() {
+      const emojiContainer = document.getElementById("emojis");
+      emojiContainer.innerHTML = ""; // Clear existing emojis
+      for (let i = 0; i < 15; i++) {
+        const emoji = document.createElement("div");
+        emoji.className = "emoji";
+        emoji.innerText = "😠";
+        emoji.style.top = Math.random() * window.innerHeight + "px";
+        emoji.style.left = Math.random() * window.innerWidth + "px";
+        emojiContainer.appendChild(emoji);
+      }
+    }
+  </script>
+</body>
+</html>
